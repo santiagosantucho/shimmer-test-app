@@ -13,33 +13,36 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         home: Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.black,
             title: Text('Shimmer Test App'),
           ),
-          body: Shimmer.fromColors(
-            baseColor: Colors.red,
-            highlightColor: Colors.blue,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('This is a text widget in the body'),
-                  SizedBox(height: 5),
-                  Container(
-                    width: 100,
-                    height: 50,
-                    color: Colors.red,
-                  ),
-                  SizedBox(height: 5),
-                  Container(
-                    width: 200,
-                    height: 50,
-                    color: Colors.blue,
-                  )
-                ],
-              ),
-            ),
-          ),
+          backgroundColor: Colors.black,
+          body: ShimmerLogo()
         ),
     );
   }
+
 }
+
+class ShimmerLogo extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 300,
+        width: 300,
+        child: Shimmer.fromColors(
+            child: Image.asset('logo.png'),
+            baseColor: Colors.black,
+            highlightColor: Colors.white,
+            period: Duration(seconds: 2),
+        ),
+      ),
+    );
+  }
+
+}
+
+
+
